@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: rgb(var(--color-text));
+  background-color: rgb(var(--color-base));
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* theme */
+
+.moon {
+  --color-base: 35 33 54;
+
+  --color-surface: 42 39 63;
+
+  --color-text: 224 222 244;
+}
+
+.dawn {
+  --color-base: 250 244 237;
+
+  --color-surface: 255 250 243;
+
+  --color-text: 87 82 121;
+}
