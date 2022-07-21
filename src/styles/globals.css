@@ -31,6 +31,8 @@ a {
   --color-surface: 42 39 63;
 
   --color-text: 224 222 244;
+
+  --color-pine: 62 143 176;
 }
 
 .dawn {
@@ -39,4 +41,6 @@ a {
   --color-surface: 255 250 243;
 
   --color-text: 87 82 121;
+
+  --color-pine: 40 105 131;
 }

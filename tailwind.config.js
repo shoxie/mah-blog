@@ -19,13 +19,13 @@ function withOpacityValue(variable) {
 
 
 let themeColors = {
-
   base: withOpacityValue("--color-base"),
 
   surface: withOpacityValue("--color-surface"),
 
   text: withOpacityValue("--color-text"),
 
+  pine: withOpacityValue("--color-pine"),
 };
 
 
@@ -37,6 +37,14 @@ module.exports = {
   theme: {
     extend: {
       colors: themeColors,
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": theme("colors.text"),
+            "--tw-prose-headings": theme("colors.pine"),
+          }
+        }
+      })
     },
   },
   plugins: [
