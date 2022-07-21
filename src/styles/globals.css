@@ -27,20 +27,31 @@ a {
 
 .moon {
   --color-base: 35 33 54;
-
   --color-surface: 42 39 63;
-
   --color-text: 224 222 244;
-
   --color-pine: 62 143 176;
+  --color-iris: 144 122 169;
+  --color-highlight-low: 244 237 232;
 }
 
 .dawn {
   --color-base: 250 244 237;
-
   --color-surface: 255 250 243;
-
   --color-text: 87 82 121;
-
   --color-pine: 40 105 131;
+  --color-iris: 196 167 231;
+  --color-highlight-low: 42 40 62;
+}
+
+.cursor {
+  background-color: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: rgb(var(--color-iris));
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
 }

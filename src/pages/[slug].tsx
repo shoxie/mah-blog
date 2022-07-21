@@ -11,8 +11,8 @@ export default function Pages({ page }: { page: Page }) {
     <PagesLayout>
       <article>
         <NextSeo title={page.title} description={page.description} />
-        <h1 className="mb-4 text-3xl font-bold tracking-tight uppercase md:text-5xl text-text">
-          {page.title}
+        <h1 className="mb-4 text-sm font-bold tracking-tight uppercase text-text">
+          Home / {page.title}
         </h1>
         <p className="mt-2 mb-8 text-subtle">{page.description}</p>
         <div className="w-full prose prose-xl dark:prose-dark">

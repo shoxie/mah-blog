@@ -26,6 +26,10 @@ let themeColors = {
   text: withOpacityValue("--color-text"),
 
   pine: withOpacityValue("--color-pine"),
+
+  iris: withOpacityValue("--color-iris"),
+
+  highlightLow: withOpacityValue("--color-highlight-low"),
 };
 
 
@@ -42,6 +46,7 @@ module.exports = {
           css: {
             "--tw-prose-body": theme("colors.text"),
             "--tw-prose-headings": theme("colors.pine"),
+            "--tw-prose-links": theme("colors.highlightLow"),
           }
         }
       })
