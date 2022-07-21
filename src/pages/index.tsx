@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
-import Layout from "@/layouts/Default";
+import DefaultLayout from "@/layouts/Default";
 
 const TransitionLTR = {
   initial: {
@@ -110,6 +110,6 @@ const Home = () => {
   );
 };
 
-Home.Layout = Layout;
+Home.Layout = DefaultLayout;
 
 export default Home;

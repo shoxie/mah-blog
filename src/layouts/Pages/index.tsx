@@ -7,12 +7,12 @@ type Props = {
   children: React.ReactNode;
 };
 
-const DefaultLayout = ({ children }: Props) => {
+const PagesLayout = ({ children }: Props) => {
   const router = useRouter();
   
   return (
     <>
-      {/* <Header /> */}
+      <Header />
       <AnimatePresence initial={false} exitBeforeEnter>
         <motion.div
           key={router.asPath}
@@ -24,12 +24,12 @@ const DefaultLayout = ({ children }: Props) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
         >
-          <motion.main>{children}</motion.main>
+          <motion.main className="max-w-screen-xl px-10 mx-auto">{children}</motion.main>
         </motion.div>
       </AnimatePresence>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
 
-export default DefaultLayout;
+export default PagesLayout;

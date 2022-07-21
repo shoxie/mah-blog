@@ -1,11 +1,10 @@
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import "../styles/globals.css";
-import { AnimatePresence } from "framer-motion";
 function MyApp({
   Component,
   pageProps,
-  router
+  router,
 }: AppProps & { Component: { Layout?: any } }) {
   function DefaultLayout({ children }: { children: React.ReactNode }) {
     return children;
@@ -18,9 +17,9 @@ function MyApp({
       defaultTheme="moon"
       themes={["moon", "dawn"]}
     >
-        <Layout>
-          <Component {...pageProps} key={router.route} />
-        </Layout>
+      <Layout>
+        <Component {...pageProps} key={router.route} />
+      </Layout>
     </ThemeProvider>
   );
 }
