@@ -20,7 +20,21 @@ function MyApp({
       themes={["moon", "dawn"]}
     >
       <Layout>
-        <DefaultSeo defaultTitle="WhiteRose Space" titleTemplate={`%s - WhiteRose Space`} />
+        <DefaultSeo
+          title="WhiteRose Space"
+          defaultTitle="WhiteRose Space"
+          titleTemplate={`%s - WhiteRose Space`}
+          description="A frontend developer who likes to build beautiful and functional things."
+          robotsProps={{
+            nosnippet: true,
+            notranslate: true,
+            noimageindex: true,
+            noarchive: true,
+            maxSnippet: -1,
+            maxImagePreview: "none",
+            maxVideoPreview: -1,
+          }}
+        />
         <Component {...pageProps} key={router.route} />
       </Layout>
     </ThemeProvider>
