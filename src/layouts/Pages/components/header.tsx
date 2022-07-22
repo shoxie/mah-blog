@@ -31,7 +31,7 @@ const Header = () => {
                   duration: 0.5,
                 }
               }}
-              className="absolute"
+              className="absolute right-0"
             >
               <BsFillSunFill className="text-yellow-400" />
             </motion.button>
@@ -48,7 +48,7 @@ const Header = () => {
                   duration: 0.5,
                 }
               }}
-              className="absolute"
+              className="absolute right-0"
             >
               <BsFillMoonFill className="text-text" />
             </motion.button>

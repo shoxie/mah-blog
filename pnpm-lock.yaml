@@ -13,6 +13,7 @@ specifiers:
   eslint-config-next: 12.2.2
   framer-motion: ^6.5.1
   image-size: ^1.0.2
+  moment: ^2.29.4
   next: 12.2.2
   next-contentlayer: ^0.2.6
   next-seo: ^5.5.0
@@ -37,6 +38,7 @@ specifiers:
 
 dependencies:
   framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
+  moment: 2.29.4
   next: 12.2.2_biqbaboplfbrettd7655fr4n2y
   next-seo: 5.5.0_7gpduzaz4csxytrukenoyuq3te
   next-themes: 0.2.0_7gpduzaz4csxytrukenoyuq3te
@@ -3426,6 +3428,10 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
+
+  /moment/2.29.4:
+    resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
+    dev: false
 
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}

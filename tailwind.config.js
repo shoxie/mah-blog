@@ -30,6 +30,8 @@ let themeColors = {
   iris: withOpacityValue("--color-iris"),
 
   highlightLow: withOpacityValue("--color-highlight-low"),
+
+  highlightHigh: withOpacityValue("--color-highlight-high"),
 };
 
 

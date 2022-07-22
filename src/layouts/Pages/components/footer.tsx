@@ -1,6 +1,6 @@
+import { BsDiscFill, BsPauseCircle } from "react-icons/bs";
 import useSWR from "swr";
-import { useEffect } from "react";
-import { BsDiscFill } from "react-icons/bs";
+
 type NowPlayingSong = {
   album: string;
   albumImageUrl: string;
@@ -25,11 +25,21 @@ const Footer = () => {
 
   return (
     <footer className="max-w-screen-xl px-10 py-5 pt-5 mx-auto">
-      <div className="flex flex-row items-center justify-between pt-5 border-t">
+      <div className="flex flex-row items-center justify-between pt-5 border-t border-highlightHigh">
         <div className="flex flex-row items-center space-x-3">
-          <BsDiscFill className="animate-spin" />
           {data?.isPlaying ? (
-            <a href={data.songUrl} target="_blank" rel="noopener noreferrer" className="truncate" title={data.title + '-' + data.artist}>
+            <BsDiscFill className="animate-spin" />
+          ) : (
+            <BsPauseCircle />
+          )}
+          {data?.isPlaying ? (
+            <a
+              href={data.songUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="truncate"
+              title={data.title + "-" + data.artist}
+            >
               {data.title} - {data.artist}
             </a>
           ) : (

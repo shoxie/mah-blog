@@ -69,8 +69,8 @@ const Home = () => {
           <Link href="/about" passHref>
             <a>About</a>
           </Link>
-          <Link href="/about" passHref>
-            <a>About</a>
+          <Link href="/blog" passHref>
+            <a>Blog</a>
           </Link>
         </div>
         <div className="flex flex-col justify-between h-full">
