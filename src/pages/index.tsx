@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
 import DefaultLayout from "@/layouts/Default";
+import HeroBanner from "@/modules/Home/components/HeroBanner";
 
 const TransitionLTR = {
   initial: {
@@ -99,6 +100,7 @@ const Home = () => {
               say hi.
             </motion.span>
           </div>
+          <HeroBanner />
           <div className="flex flex-row items-center justify-between text-lg font-semibold">
             <motion.button
               type="button"
