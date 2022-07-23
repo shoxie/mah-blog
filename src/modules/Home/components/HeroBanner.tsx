@@ -5,7 +5,7 @@ const Texts = [
   "Hello, I'm WhiteRose",
   "I'm a frontend developer",
   "I don't know what to put here",
-  "Please help me to improve this :(",
+  "Please help me improve this :(",
 ];
 
 const HeroBanner = () => {
