@@ -2,6 +2,7 @@ import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import "../styles/globals.css";
 import { DefaultSeo } from "next-seo";
+import { AnimatePresence, motion } from "framer-motion";
 
 function MyApp({
   Component,
@@ -19,24 +20,36 @@ function MyApp({
       defaultTheme="moon"
       themes={["moon", "dawn"]}
     >
-      <Layout>
-        <DefaultSeo
-          title="WhiteRose Space"
-          defaultTitle="WhiteRose Space"
-          titleTemplate={`%s - WhiteRose Space`}
-          description="A frontend developer who likes to build beautiful and functional things."
-          robotsProps={{
-            nosnippet: true,
-            notranslate: true,
-            noimageindex: true,
-            noarchive: true,
-            maxSnippet: -1,
-            maxImagePreview: "none",
-            maxVideoPreview: -1,
+      <AnimatePresence initial={false} exitBeforeEnter>
+        <motion.div
+          key={router.asPath}
+          initial={{
+            opacity: 0,
+            y: 50,
           }}
-        />
-        <Component {...pageProps} key={router.route} />
-      </Layout>
+          layout
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 50 }}
+        >
+          <Layout>
+            <DefaultSeo
+              defaultTitle="WhiteRose Space"
+              titleTemplate={`%s - WhiteRose Space`}
+              description="A frontend developer who likes to build beautiful and functional things."
+              robotsProps={{
+                nosnippet: true,
+                notranslate: true,
+                noimageindex: true,
+                noarchive: true,
+                maxSnippet: -1,
+                maxImagePreview: "none",
+                maxVideoPreview: -1,
+              }}
+            />
+            <Component {...pageProps} key={router.route} />
+          </Layout>
+        </motion.div>
+      </AnimatePresence>
     </ThemeProvider>
   );
 }

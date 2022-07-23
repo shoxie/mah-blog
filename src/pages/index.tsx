@@ -59,7 +59,11 @@ const Home = () => {
   return (
     <AnimatePresence exitBeforeEnter>
       <div className="relative h-screen px-16 py-10 mx-auto max-w-scren-xl">
-        <div
+        <motion.div
+          variants={TransitionLTR}
+          initial="initial"
+          animate="animate"
+          exit="exit"
           className="absolute right-0 flex flex-row items-center px-16 space-y-5 text-lg -translate-y-1/2 top-1/2"
           style={{
             textOrientation: "mixed",
@@ -72,7 +76,7 @@ const Home = () => {
           <Link href="/blog" passHref>
             <a>Blog</a>
           </Link>
-        </div>
+        </motion.div>
         <div className="flex flex-col justify-between h-full">
           <div className="flex flex-row items-center justify-between">
             <motion.div
@@ -85,7 +89,15 @@ const Home = () => {
                 <a className="text-2xl font-bold">WR</a>
               </Link>
             </motion.div>
-            <span className="text-lg">say hi.</span>
+            <motion.span
+              variants={TransitionRTL}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="text-lg"
+            >
+              say hi.
+            </motion.span>
           </div>
           <div className="flex flex-row items-center justify-between text-lg font-semibold">
             <motion.button
@@ -98,11 +110,17 @@ const Home = () => {
             >
               toggle themes.
             </motion.button>
-            <div className="flex flex-row space-x-3">
+            <motion.div
+              variants={TransitionRTL}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="flex flex-row space-x-3"
+            >
               <a href="">Facebook</a>
               <a href="">Linkedin</a>
               <a href="">Call me</a>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

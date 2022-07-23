@@ -1,5 +1,3 @@
-import Header from "./components/header";
-import Footer from "./components/footer";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
@@ -12,7 +10,6 @@ const DefaultLayout = ({ children }: Props) => {
   
   return (
     <>
-      {/* <Header /> */}
       <AnimatePresence initial={false} exitBeforeEnter>
         <motion.div
           key={router.asPath}
@@ -24,10 +21,9 @@ const DefaultLayout = ({ children }: Props) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
         >
-          <motion.main>{children}</motion.main>
+          {children}
         </motion.div>
       </AnimatePresence>
-      {/* <Footer /> */}
     </>
   );
 };

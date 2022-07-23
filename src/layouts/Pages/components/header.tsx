@@ -2,6 +2,18 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { motion } from "framer-motion";
+import UndelinedLinks from "@/common/UnderlinedLinks";
+
+const menuItems = [
+  {
+    name: "Blog",
+    href: "/blog",
+  },
+  {
+    name: "About",
+    href: "/about",
+  }
+]
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
@@ -13,10 +25,11 @@ const Header = () => {
             <a className="text-2xl font-bold">WR.</a>
           </Link>
         </div>
-        <div className="flex flex-row items-center justify-center">
+        <div className="flex flex-row items-center justify-center space-x-5">
+          <UndelinedLinks items={menuItems} />
           <div
             onClick={() => setTheme(theme === "moon" ? "dawn" : "moon")}
-            className="relative text-xl"
+            className="relative w-10 h-5 text-xl"
           >
             <motion.button
               type="button"
@@ -31,7 +44,7 @@ const Header = () => {
                   duration: 0.5,
                 }
               }}
-              className="absolute right-0"
+              className="absolute"
             >
               <BsFillSunFill className="text-yellow-400" />
             </motion.button>
@@ -48,7 +61,7 @@ const Header = () => {
                   duration: 0.5,
                 }
               }}
-              className="absolute right-0"
+              className="absolute"
             >
               <BsFillMoonFill className="text-text" />
             </motion.button>

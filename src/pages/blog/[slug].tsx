@@ -7,20 +7,33 @@ import { pick } from "contentlayer/utils";
 // import PostLayout from "src/layouts/PostLayout";
 import components from "src/common/MDXComponents";
 import PagesLayout from "@/layouts/Pages";
+import Tags from "@/common/Tags";
 
 export default function BlogDetailPage({ post }: { post: Post }) {
   const Component = useMDXComponent(post.body.code);
   return (
     <PagesLayout>
       <article>
-        <h1>{post.title}</h1>
+        <div className="flex flex-row items-center justify-between">
+        <h1 className="text-5xl font-bold">{post.title}</h1>
+        <span title={moment(post.date).format("LL")}>{moment(post.date).fromNow(true)} ago - {post.readingTime.text}</span>
+        </div>
+        <p className="mt-3">{post.summary}</p>
+        <div>
+          <div className="flex flex-wrap gap-3 mt-4">
+            {post.tags?.map((tag) => (
+              <Tags key={tag} content={tag} />
+            ))}
+          </div>
+        </div>
+        <div className="mt-5 prose-xl">
+          <Component
+            components={{
+              ...components,
+            }}
+          />
+        </div>
       </article>
-      {/* <SEO post={post} /> */}
-      <Component
-        components={{
-          ...components,
-        }}
-      />
     </PagesLayout>
   );
 }
