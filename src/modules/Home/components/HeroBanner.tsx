@@ -39,7 +39,7 @@ const HeroBanner = () => {
           style={{ overflow: "hidden" }}
           className="absolute text-3xl font-bold"
         >
-          {text}
+          <h1>{text}</h1>
         </motion.div>
       ))}
     </div>
