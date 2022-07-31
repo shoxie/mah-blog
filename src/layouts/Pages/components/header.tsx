@@ -3,6 +3,8 @@ import Link from "next/link";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import UndelinedLinks from "@/common/UnderlinedLinks";
+import Logo from 'public/logo.svg'
+import Image from "next/image";
 
 const menuItems = [
   {
@@ -22,7 +24,9 @@ const Header = () => {
       <div className="flex flex-row items-center justify-between">
         <div>
           <Link href="/" passHref>
-            <a className="text-2xl font-bold">WR.</a>
+            <a className="text-2xl font-bold">
+              <Image src={Logo.src} alt="logo" width={50} height={50} />
+            </a>
           </Link>
         </div>
         <div className="flex flex-row items-center justify-center space-x-5">

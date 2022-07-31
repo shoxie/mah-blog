@@ -3,6 +3,8 @@ import { useTheme } from "next-themes";
 import { AnimatePresence, motion } from "framer-motion";
 import DefaultLayout from "@/layouts/Default";
 import HeroBanner from "@/modules/Home/components/HeroBanner";
+import Logo from 'public/logo.svg' 
+import Image from "next/image";
 
 const TransitionLTR = {
   initial: {
@@ -27,6 +29,14 @@ const TransitionLTR = {
   },
 };
 
+const StaggerChildren = {
+  animate: {
+    transition: {
+      staggerChildren: 1,
+    },
+  },
+};
+
 const TransitionRTL = {
   initial: {
     opacity: 0,
@@ -38,15 +48,7 @@ const TransitionRTL = {
     transition: {
       duration: 0.5,
       ease: "easeInOut",
-    },
-  },
-  exit: {
-    opacity: 0,
-    x: -100,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut",
-    },
+    }
   },
 };
 
@@ -59,7 +61,7 @@ const Home = () => {
 
   return (
     <AnimatePresence exitBeforeEnter>
-      <div className="relative h-screen px-16 py-10 mx-auto max-w-scren-xl">
+      <div className="relative h-screen px-8 py-5 mx-auto md:px-16 md:py-10 max-w-scren-xl">
         <motion.div
           variants={TransitionLTR}
           initial="initial"
@@ -87,7 +89,9 @@ const Home = () => {
               exit="exit"
             >
               <Link href="/" passHref>
-                <a className="text-2xl font-bold">WR</a>
+                <a className="text-2xl font-bold">
+                  <Image src={Logo.src} alt="logo" width={50} height={50} />
+                </a>
               </Link>
             </motion.div>
             <motion.span
@@ -113,15 +117,13 @@ const Home = () => {
               toggle themes.
             </motion.button>
             <motion.div
-              variants={TransitionRTL}
-              initial="initial"
+              variants={StaggerChildren}
               animate="animate"
-              exit="exit"
               className="flex flex-row space-x-3"
             >
-              <a href="">Facebook</a>
-              <a href="">Linkedin</a>
-              <a href="">Call me</a>
+              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit">Facebook</motion.a>
+              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit">Linkedin</motion.a>
+              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit">Call me</motion.a>
             </motion.div>
           </div>
         </div>

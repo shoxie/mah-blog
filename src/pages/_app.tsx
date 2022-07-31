@@ -45,6 +45,39 @@ function MyApp({
                 maxImagePreview: "none",
                 maxVideoPreview: -1,
               }}
+              additionalLinkTags={[
+                {
+                  rel: "apple-touch-icon",
+                  sizes: "76x76",
+                  href: "/static/favicon/apple-touch-icon.png",
+                },
+                {
+                  rel: "icon",
+                  sizes: "32x32",
+                  type: "image/png",
+                  href: "/static/favicon/favicon-32x32.png",
+                },
+                {
+                  rel: "icon",
+                  sizes: "16x16",
+                  type: "image/png",
+                  href: "/static/favicon/favicon-16x16.png",
+                },
+                {
+                  rel: "manifest",
+                  href: "/static/favicon/manifest.json",
+                },
+                {
+                  rel: "mask-icon",
+                  href: "/static/favicon/safari-pinned-tab.svg",
+                  color: "#5bbad5",
+                },
+                {
+                  rel: "alternate",
+                  type: "application/rss+xml",
+                  href: "/feed.xml",
+                },
+              ]}
             />
             <Component {...pageProps} key={router.route} />
           </Layout>
