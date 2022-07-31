@@ -1,0 +1,5 @@
+Sitemap: https://wrosedev.tech/sitemap.xml
+
+User-agent: *
+Allow: /
+Disallow: /api/*
