@@ -4,6 +4,7 @@ import { pick } from "contentlayer/utils";
 import PagesLayout from "@/layouts/Pages";
 import { NextSeo } from "next-seo";
 import BlogList from "@/modules/Blog/components/BlogList";
+import TopTrackSpotify from "@/common/TopSpotify";
 
 export default function BlogPage({ posts }: { posts: Post[] }) {
   return (
@@ -11,6 +12,9 @@ export default function BlogPage({ posts }: { posts: Post[] }) {
       <NextSeo title="Blog" description="All of the blog on this website." />
       <PagesLayout>
         <BlogList posts={posts} />
+        <div className="pt-10 mt-10 border-t border-highlightHigh">
+        <TopTrackSpotify />
+        </div>
       </PagesLayout>
     </>
   );
