@@ -39,6 +39,7 @@ let themeColors = {
 module.exports = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./data/**/*.mdx",
   ],
   theme: {
     extend: {
@@ -49,7 +50,20 @@ module.exports = {
             "--tw-prose-body": theme("colors.text"),
             "--tw-prose-headings": theme("colors.pine"),
             "--tw-prose-links": theme("colors.highlightLow"),
-          }
+          },
+          code: {
+            color: theme("colors.iris"),
+            background: "rgb(38 35 58)",
+            padding: "0.25rem 0.4rem",
+            borderRadius: "0.25rem",
+            fontWeight: "600",
+          },
+          "code::before": {
+            content: "",
+          },
+          "code::after": {
+            content: "",
+          },
         }
       })
     },

@@ -54,6 +54,15 @@ const Snippet = defineDocumentType(() => ({
     title: { type: "string", required: true },
     date: { type: "string", required: true },
     description: { type: "string", required: true },
+    tags: {
+      type: "list",
+      of: {
+        type: "string",
+      },
+      default: ["snippet"],
+      description: "Tags for the post",
+      required: false,
+    },
     logo: { type: "string", required: true },
   },
   computedFields,

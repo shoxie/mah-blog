@@ -29,7 +29,6 @@ class MyDocument extends Document {
         </Head>
         <body>
           <Main />
-          <div id="popup-container"></div>
           <NextScript />
         </body>
       </Html>

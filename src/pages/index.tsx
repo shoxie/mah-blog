@@ -67,7 +67,7 @@ const Home = () => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="absolute right-0 flex flex-row items-center px-16 space-y-5 text-lg -translate-y-1/2 top-1/2"
+          className="absolute right-0 flex flex-row items-center h-full px-16 space-y-5 text-lg translate-y-1/2 top-1/2"
           style={{
             textOrientation: "mixed",
             writingMode: "vertical-lr",
@@ -78,6 +78,9 @@ const Home = () => {
           </Link>
           <Link href="/blog" passHref>
             <a>Blog</a>
+          </Link>
+          <Link href="/snippet" passHref>
+            <a>Snippet</a>
           </Link>
         </motion.div>
         <div className="flex flex-col justify-between h-full">
