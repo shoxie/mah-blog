@@ -1,0 +1,75 @@
+---
+title: Create a shared border for all links section
+date: "2022-08-01"
+tags: ["snippet", "framer-motion", "react", "nextjs"]
+description: Let's try to create an animated border for all links in the page with framer-motion.
+type: Snippet
+logo: "/static/images/framer.png"
+---
+
+## Gist
+
+### What is framer-motion ?
+
+Framer motion is a library that allows you to create micro interactions in your react apps. It's a great way to create a smooth transition between pages or components. For short, framer-motion will try to animate between changes in css.
+
+Now let's not waste anymore time, let's get into the makings.
+
+## Create a shared border for all links section
+
+### Creating container
+
+```ts
+const Container = () => {
+    const [current, setCurrent] = useState(0);
+    
+    return (
+      <div className="grid w-full">
+        <div className="flex flex-row space-x-5">
+          <AnimateSharedLayout>
+            {menuItems.map((item, idx) => (
+              <Link
+                text={item}
+                key={idx}
+                selected={current === idx}
+                onClick={() => setCurrent(idx)}
+              />
+            ))}
+          </AnimateSharedLayout>
+        </div>
+      </div>
+    );
+}
+```
+
+Let's brake it down a bit. 
+
+- `AnimateSharedLayout` will try to animate between changes in css, based on the argument ```key```.
+- `key` is a unique identifier for each element so that `AnimateSharedLayout` can track changes.
+- `text` is the text that will be displayed in the link.
+- `selected` is a boolean that will be used to determine if the link is selected or not. 
+
+We've just created the container, let's move on to the `Link` component.
+
+### Create Link component
+
+```ts
+type LinkProps = {
+    selected: boolean;
+    text: string;
+    onClick: () => void
+}
+
+const Link: FC<LinkProps> = ({ selected, onClick, text }) => {
+    return (
+      <motion.div
+        className="relative"
+        onClick={onClick}
+        animate={{ opacity: selected ? 1 : 0.5 }}
+      >
+        {text}
+        {selected && <motion.div className="absolute top-full left-0 w-full h-0.5 rounded-2xl bg-red-700" layoutId="underline" />}
+      </motion.div>
+    );
+}
+```
