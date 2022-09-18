@@ -104,7 +104,9 @@ const Home = () => {
               exit="exit"
               className="text-lg"
             >
-              say hi.
+              <Link href="/static/CV.pdf" passHref>
+                <a>my resume.</a>
+              </Link>
             </motion.span>
           </div>
           <HeroBanner />
