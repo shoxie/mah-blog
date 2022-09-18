@@ -126,9 +126,9 @@ const Home = () => {
               animate="animate"
               className="flex flex-row space-x-3"
             >
-              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit">Facebook</motion.a>
-              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit">Linkedin</motion.a>
-              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit">Call me</motion.a>
+              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit" href="https://facebook.com/whiterose.uchiha">Facebook</motion.a>
+              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit" href="https://www.linkedin.com/in/tuananhdev">Linkedin</motion.a>
+              <motion.a variants={TransitionRTL} initial="initial" animate="animate" exit="exit" href="tel:+84879556264">Call me</motion.a>
             </motion.div>
           </div>
         </div>
