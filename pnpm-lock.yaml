@@ -10,6 +10,7 @@ specifiers:
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
   autoprefixer: ^10.4.7
+  classnames: ^2.3.2
   contentlayer: ^0.2.6
   cross-env: ^7.0.3
   eslint: 8.20.0
@@ -45,6 +46,7 @@ dependencies:
   '@mantine/core': 4.2.12_bhlenwkd723lhai3utuqqpcmru
   '@mantine/hooks': 4.2.12_react@18.2.0
   '@mantine/next': 4.2.12_2gqzyayxaiqf33ltv5ghxbozne
+  classnames: 2.3.2
   feed: 4.2.2
   framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
   moment: 2.29.4
@@ -1509,6 +1511,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /classnames/2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
 
   /clipanion/3.2.0-rc.11:
     resolution: {integrity: sha512-fugY+N5uPop31VDYhjTc31DwPjCCLx6kmvdlFTf8fztpOxwplopiZr1XSHSA2qNmfpcXlJZKJsXMkxvXmdzK7g==}

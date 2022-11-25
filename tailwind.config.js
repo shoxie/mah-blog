@@ -32,6 +32,10 @@ let themeColors = {
   highlightLow: withOpacityValue("--color-highlight-low"),
 
   highlightHigh: withOpacityValue("--color-highlight-high"),
+
+  love: withOpacityValue("--color-love"),
+
+  overlay: withOpacityValue("--color-overlay"),
 };
 
 
@@ -50,6 +54,9 @@ module.exports = {
             "--tw-prose-body": theme("colors.text"),
             "--tw-prose-headings": theme("colors.pine"),
             "--tw-prose-links": theme("colors.highlightLow"),
+            "--tw-prose-pre-bg": theme("colors.overlay"),
+            "--tw-prose-code": theme("colors.love"),
+            "--tw-prose-pre-code": theme("colors.text"),
           },
           code: {
             color: theme("colors.iris"),

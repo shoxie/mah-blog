@@ -22,7 +22,7 @@ const HeroBanner = () => {
   }, [selectedText]);
 
   return (
-    <div className="relative flex flex-col items-center">
+    <div className="relative flex-col items-center hidden lg:flex">
       {Texts.map((text, index) => (
         <motion.div
           key={index}
@@ -37,7 +37,7 @@ const HeroBanner = () => {
           exit={{ opacity: 0, y: -100 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
           style={{ overflow: "hidden" }}
-          className="absolute text-3xl font-bold"
+          className="absolute text-lg font-bold lg:text-3xl"
         >
           <h1>{text}</h1>
         </motion.div>

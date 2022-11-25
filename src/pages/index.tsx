@@ -67,7 +67,7 @@ const Home = () => {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="absolute right-0 flex flex-row items-center h-full px-16 space-y-5 text-lg translate-y-1/2 top-1/2"
+          className="absolute right-0 flex flex-row items-center justify-center px-16 space-y-5 text-lg -translate-y-1/2 top-1/2"
           style={{
             textOrientation: "mixed",
             writingMode: "vertical-lr",

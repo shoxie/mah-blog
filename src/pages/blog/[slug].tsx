@@ -14,10 +14,10 @@ export default function BlogDetailPage({ post }: { post: Post }) {
   return (
     <PagesLayout>
       <article>
-        <div className="flex flex-row items-center justify-between">
-        <h1 className="text-5xl font-bold">{post.title}</h1>
-        <span title={moment(post.date).format("LL")}>{moment(post.date).fromNow(true)} ago - {post.readingTime.text}</span>
-        </div>
+        <h1 className="text-4xl font-bold">{post.title}</h1>
+        <span title={moment(post.date).format("LL")}>
+          {moment(post.date).fromNow(true)} ago - {post.readingTime.text}
+        </span>
         <p className="mt-3">{post.summary}</p>
         <div>
           <div className="flex flex-wrap gap-3 mt-4">
@@ -26,7 +26,7 @@ export default function BlogDetailPage({ post }: { post: Post }) {
             ))}
           </div>
         </div>
-        <div className="mt-5 prose-xl">
+        <div className="mt-5 prose">
           <Component
             components={{
               ...components,

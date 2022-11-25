@@ -1,0 +1,202 @@
+---
+title: Let's create my NextJS stack from scratch - Part 1
+date: "2022-11-25"
+tags: ["nextjs", "template", "react"]
+summary: In this part, i will guide you to create a new NextJS project with a little setup.
+type: Post
+---
+
+When starting a new project, i usually think about how to have the cleaniest as well as easy-to-read structure. I always get bored when finished setting up techs into this new project. So i decided to write this blog to help you and help me get rid of those boring process.
+
+## Introduction
+
+For most of the time, i seek for easy coding solutions. So in this journey you will only see things that simplified to make up your effortless coding life.
+
+## Prerequisites
+
+Before going further, you are expected to have a tiny tiny bit of basic knowledge of these things: 
+
+- NodeJS
+- NPM
+- NextJS
+- TailwindCSS
+- TypeScript
+
+## Getting started
+
+Let's setup NextJS with one magic command:
+
+```
+npx create-next-app --typescript nextjs-template
+```
+
+In this case i'm using pnpm, which is a package manager, so i will alternatively run this for a faster performance and a little easy on my patient: 
+
+```
+pnpx create next-app --typescript nextjs-template
+```
+
+
+
+After npx finished creating NextJS project, first of all, you will want to create `src` folder, which will contains your `pages`, `styles` directory. 
+
+
+
+In `tsconfig.json`, let's add a relative path alias config to have a cooler developement process. 
+
+```json
+// @/tsconfig.json
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ],
+    }
+  },
+  // ...
+}
+```
+
+## Install and setup Chakra UI
+
+To use Chakra UI in your project, run one of these:
+
+```
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+```
+
+```
+yarn add @chakra-ui/react @emotion/react @emotion/styled framer-motion
+```
+
+```
+pnpm add @chakra-ui/react @emotion/react @emotion/styled framer-motion
+```
+
+After installing Chakra UI, we need to set up the `ChakraProvider` at the root of our application, which is `_app.tsx`: 
+
+```tsx
+// _app.tsx
+import type { AppProps } from 'next/app'
+import { ChakraProvider } from '@chakra-ui/react'
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ChakraProvider>
+      <Component {...pageProps} />
+    </ChakraProvider>
+  )
+}
+```
+
+## Set up theme with Chakra UI
+
+Chakra UI comes with an enormous customization ability. Let's use it. To get started with alternating default theme, you will need `@chakra-ui@theme-tools`
+
+```
+npm i @chakra-ui/theme-tools
+```
+
+```
+yarn add @chakra-ui/theme-tools
+```
+
+```
+pnpm add @chakra-ui/theme-tools
+```
+
+Now create a file to hold these themes together, let say it's `theme.ts`
+
+```ts
+// src/lib/theme.ts
+
+import { extendTheme } from "@chakra-ui/react";
+import { mode } from "@chakra-ui/theme-tools";
+
+const colors = {
+  global: {
+    body: {
+      bg: {
+        light: "#faf4ed",
+        dark: "#232136",
+      },
+      default: {
+        light: "#575279",
+        dark: "#e0def4",
+      },
+    },
+  },
+  components: {
+    Drawer: {
+      dialog: {
+        light: "white",
+        dark: "#141214",
+      },
+    },
+  },
+};
+
+const styles = {
+  global: (props: any) => ({
+    body: {
+      color: mode(
+        colors.global.body.default.light,
+        colors.global.body.default.dark
+      )(props),
+      bg: mode(colors.global.body.bg.light, colors.global.body.bg.dark)(props),
+    },
+  }),
+};
+
+const components = {
+  Drawer: {
+    baseStyle: (props: any) => ({
+      dialog: {
+        bg: mode(
+          colors.components.Drawer.dialog.light,
+          colors.components.Drawer.dialog.dark
+        )(props),
+      },
+    }),
+  },
+};
+
+const theme = extendTheme({
+  components,
+  styles,
+});
+
+export default theme;
+```
+
+In the above snippet, I imported:
+- `mode`: this allow us to define colors for our themes, toggling between `light` and `dark`
+- `extendTheme`: a method to add your theme to default Chakra UI foundation styles.
+
+You can find all the foundation styles [here](https://github.com/chakra-ui/chakra-ui/tree/main/packages/components/theme/src/foundations).
+
+After these configurations of Chakra UI, now you can use one of their hooks to switch between color modes:
+
+```tsx
+import { useColorMode } from "@chakra-ui/react";
+
+function Example() {
+  const { colorMode, toggleColorMode } = useColorMode()
+  return (
+    <header>
+      <Button onClick={toggleColorMode}>
+        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+      </Button>
+    </header>
+  )
+}
+```
+
+## The end
+That's it for today. New part coming soon or later is fully based on my diligent xD.
+
+## Upcoming
+Next part, probably will be last part, cover e2e testing, component isolation building, and some other misc configs.

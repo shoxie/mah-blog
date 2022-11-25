@@ -40,7 +40,7 @@ const Link: FC<LinkProps> = ({ selected, onClick, text, href }) => {
 const UndelinedLinks = ({
   items,
 }: {
-  items: { name: string; href: string }[];
+  items: { name: string; href: string, mobile: boolean }[];
 }) => {
   const [current, setCurrent] = useState(0);
 
@@ -48,15 +48,17 @@ const UndelinedLinks = ({
     <div className="grid w-full">
       <div className="flex flex-row space-x-10">
         <LayoutGroup>
-          {items.map((item, idx) => (
-            <Link
+          {items.map((item, idx) => {
+            if (!item.mobile) return (
+              <Link
               text={item.name}
               key={idx}
               selected={current === idx}
               onClick={() => setCurrent(idx)}
               href={item.href}
             />
-          ))}
+            )
+          })}
         </LayoutGroup>
       </div>
     </div>
