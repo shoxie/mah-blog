@@ -78,6 +78,24 @@ function MyApp({
                   href: "/feed.xml",
                 },
               ]}
+              openGraph={{
+                type: "website",
+                locale: "en_US",
+                url: "https://wrosedev.tech",
+                site_name: "WhiteRose Space",
+                profile: {
+                  firstName: "Đào",
+                  lastName: "Tuấn Anh",
+                  username: "whiterose.uchiha",
+                  gender: "male",
+                },
+                images: [
+                  {
+                    url: "https://wrosedev.tech/static/images/socialbanner.png",
+                    alt: "Banner",
+                  },
+                ],
+              }}
             />
             <Component {...pageProps} key={router.route} />
           </Layout>
