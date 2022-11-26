@@ -57,6 +57,7 @@ module.exports = {
             "--tw-prose-pre-bg": theme("colors.overlay"),
             "--tw-prose-code": theme("colors.love"),
             "--tw-prose-pre-code": theme("colors.text"),
+            '--tw-prose-bold': theme('colors.love'),
           },
           code: {
             color: theme("colors.iris"),

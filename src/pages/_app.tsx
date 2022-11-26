@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import "../styles/globals.css";
 import { DefaultSeo } from "next-seo";
 import { AnimatePresence, motion } from "framer-motion";
+import { Analytics } from '@vercel/analytics/react';
 
 function MyApp({
   Component,
@@ -98,6 +99,7 @@ function MyApp({
               }}
             />
             <Component {...pageProps} key={router.route} />
+            <Analytics />
           </Layout>
         </motion.div>
       </AnimatePresence>

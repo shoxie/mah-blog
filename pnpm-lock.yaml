@@ -9,6 +9,7 @@ specifiers:
   '@types/node': 18.0.6
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
+  '@vercel/analytics': ^0.1.5
   autoprefixer: ^10.4.7
   classnames: ^2.3.2
   contentlayer: ^0.2.6
@@ -46,6 +47,7 @@ dependencies:
   '@mantine/core': 4.2.12_bhlenwkd723lhai3utuqqpcmru
   '@mantine/hooks': 4.2.12_react@18.2.0
   '@mantine/next': 4.2.12_2gqzyayxaiqf33ltv5ghxbozne
+  '@vercel/analytics': 0.1.5_react@18.2.0
   classnames: 2.3.2
   feed: 4.2.2
   framer-motion: 6.5.1_biqbaboplfbrettd7655fr4n2y
@@ -81,7 +83,7 @@ devDependencies:
   rehype-slug: 5.0.1
   remark-gfm: 3.0.1
   remark-math: 5.1.1
-  tailwindcss: 3.1.6
+  tailwindcss: 3.1.6_postcss@8.4.14
   typescript: 4.7.4
   unist-util-visit: 4.1.0
   vitest: 0.18.1
@@ -1028,7 +1030,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.6
+      tailwindcss: 3.1.6_postcss@8.4.14
     dev: true
 
   /@types/acorn/4.0.6:
@@ -1207,6 +1209,14 @@ packages:
       '@typescript-eslint/types': 5.30.7
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.5_react@18.2.0:
+    resolution: {integrity: sha512-/k9N8Ea3Yc5A52GlkjzUEbi2vE/izClrOf++ryBkxEfrZM/OZwtHkdNw/QExZ1h/B67RCZLK7bCOnKKrhG7gTg==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@xobotyi/scrollbar-width/1.9.5:
     resolution: {integrity: sha512-N8tkAACJx2ww8vFMneJmaAgmjAG1tnVBZJRLRcx061tmsLRZHSEZSLuGWnwPtunsSLvSqXQ2wfp7Mgqg1I+2dQ==}
@@ -5059,10 +5069,12 @@ packages:
       react: 18.2.0
     dev: false
 
-  /tailwindcss/3.1.6:
+  /tailwindcss/3.1.6_postcss@8.4.14:
     resolution: {integrity: sha512-7skAOY56erZAFQssT1xkpk+kWt2NrO45kORlxFPXUt3CiGsVPhH1smuH5XoDH6sGPXLyBv+zgCKA2HWBsgCytg==}
     engines: {node: '>=12.13.0'}
     hasBin: true
+    peerDependencies:
+      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3

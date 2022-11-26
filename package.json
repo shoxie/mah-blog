@@ -12,6 +12,7 @@
     "@mantine/core": "^4.2.12",
     "@mantine/hooks": "^4.2.12",
     "@mantine/next": "^4.2.12",
+    "@vercel/analytics": "^0.1.5",
     "classnames": "^2.3.2",
     "feed": "^4.2.2",
     "framer-motion": "^6.5.1",
