@@ -13,6 +13,7 @@ export default function BlogDetailPage({ post }: { post: Post }) {
   const Component = useMDXComponent(post.body.code);
   return (
     <PagesLayout>
+      <NextSeo title={post.title} description={post.summary} />
       <article>
         <h1 className="text-4xl font-bold">{post.title}</h1>
         <span title={moment(post.date).format("LL")}>

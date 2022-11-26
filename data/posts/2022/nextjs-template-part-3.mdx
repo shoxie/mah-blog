@@ -1,0 +1,158 @@
+---
+title: Let's create my NextJS stack from scratch - Part 3
+date: "2022-11-27"
+tags: ["nextjs", "template", "react", "cypress"]
+summary: Second part of building my NextJS stack from scratch
+type: Post
+---
+
+In the last post, we've walkthrough all the first steps to set up a new NextJS project. This part will cover how we can setup E2E testing to have better codes.
+
+## The basics
+
+As a developer, we always want our code at the finest state, in order to deliver the best products to users. Nowadays, people use the term "E2E testing" to describe a crucial part in the making of our products.
+
+End to End Testing (E2E testing) is a technique that allow developer to test from beginning to end to ensure the application flow works as expected. The main meaing of this technique simulate the real user scenario and test from the end user's perspective.
+
+## Install and set up Cypress with NextJS for E2E testing
+
+### Installing Cypress
+Let's open terminal and pick one of these that match your package manager: 
+
+```
+npm i cypress --save-dev
+```
+
+```
+yarn add cypress --save-dev
+```
+
+```
+pnpm add cypress --save-dev
+```
+
+Add this script in your `package.json`:
+
+```json
+"scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "cypress:open": "cypress open"
+}
+```
+
+Then, add Cypress to `tsconfig.json` as we're using TypeScript:
+
+```json
+"compilerOptions": {
+    ...
+    "types": ["cypress"]
+}
+```
+
+### Run Cypress
+
+After installing, you do notice nothing is happening ? Yes you're right, it is how life works xD. 
+
+```
+npm run cypress:open
+```
+This will open a new window that includes 2 options: 
+
+- E2E Testing 
+- Component Testing
+
+Let's dive into E2E Testing first. Click into E2E Testing option then follow some configuration steps.
+
+### Write our first integration test
+
+After you follow the configuration steps, your `cypress` directory will look like this: 
+
+```
+└── cypress/
+    ├── components/
+    ├── e2e/
+    ├── fixtures/
+    └── support/
+```
+
+Under `pages` directory, create some UI in home page: 
+
+```tsx
+// pages/index.tsx
+
+import { useTranslation } from "react-i18next";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect } from "react";
+
+import React from "react";
+import { Box, Heading, Button, VStack } from "@chakra-ui/react";
+
+import ExampleApi from "@/api/example";
+
+export default function Home() {
+  const { t, i18n } = useTranslation();
+  const { data, isLoading } = useQuery(["example"], () => ExampleApi.getList());
+
+  useEffect(() => {
+    console.log("data", data);
+  }, [data]);
+
+  return (
+    <Box h="100vh">
+      <VStack minH="100vh" alignItems={"center"} justifyItems={"center"}>
+        <Button
+          onClick={() =>
+            i18n.changeLanguage(i18n.language === "en" ? "vi" : "en")
+          }
+        >
+          Click me to change language
+        </Button>
+        <Heading as="h1">{t("welcome")}</Heading>
+      </VStack>
+    </Box>
+  );
+}
+```
+
+Then, under `cypress/e2e` directory, create a file called `Home.cy.tsx`:
+
+```tsx
+/// <reference types="cypress"/>
+
+describe("Home Page example test", () => {
+  beforeEach(() => {
+    cy.visit("http://localhost:3000");
+  });
+
+  it("should render the home page and display a message", () => {
+    cy.get("h1").contains("Welcome");
+  });
+
+  it("should render the change language button", () => {
+    cy.get("button").contains("Click me to change language");
+  });
+
+  it("should be able to change language", () => {
+    cy.get("button").contains("Click me to change language").click();
+    cy.get("h1").should("have.text", "Xin chào");
+    cy.get("button").contains("Click me to change language").click();
+    cy.get("h1").should("have.text", "Welcome");
+  });
+});
+
+export {};
+```
+
+Here is the scenario I'm telling Cypress:
+- Go to `https://localhost:3000`
+- Find `h1` tag with `Welcome` as content
+- Find `button` with `Click me to change language` then click it
+- Check for `h1` content changes.
+
+Note: Make sure your NextJS server as you follow along because Cypress will need it to be up and running to test.
+
+## Conclusion
+Now you can understand how Cypress works within NextJS ((づ｡◕‿‿◕｡)づ or not, __*please*__ tell me you understand something). Create your own tests based on your scenario.

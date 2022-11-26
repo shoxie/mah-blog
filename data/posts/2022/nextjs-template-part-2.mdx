@@ -1,0 +1,77 @@
+---
+title: Let's create my NextJS stack from scratch - Part 2
+date: "2022-11-26"
+tags: ["nextjs", "template", "react", "prettier"]
+summary: Let's format our project
+type: Post
+---
+
+When I start to code, I always tend to have the same code style for every bit of code I write. But I'm too lazy to use `Ctrl K` + `Ctrl F` in every time I want to save. So let's setup Prettier in order to do that upon changes.
+
+`Prettier` is a code formatting tool to manage the same code style in a project.
+
+## Installation
+
+Add prettier dependencies: 
+
+```
+npm install -D prettier eslint-config-prettier
+```
+
+- `prettier` is the base package that formats your codes.
+- `eslint-config-prettier` will prevent conflicts between prettier and eslint rules.
+
+Note that `eslint` is installed by default when we use `create-next-app`
+
+## Configure ESlint
+
+Now that you've installed `prettier`, let's make it not conflict with `eslint`
+
+Navigate to `.eslintrc.json`, then edit like so:
+
+```json
+// .eslintrc.json
+
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:react/recommended",
+    "prettier" //add prettier at the end so it won't conflict with any eslint rules
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}
+```
+
+## Configure Prettier
+
+Create a file `.prettierrc` at the root of the project, then configure it as you like. There are various options on the homepage of prettier, you can find it [here](https://prettier.io/docs/en/options.html).
+
+```json
+// .prettierrc
+
+{
+  "endOfLine": "lf",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "trailingComma": "es5"
+}
+```
+
+But these configure will not run automatically on save. I'm lazy so make it run on both save and paste.
+
+Create `settings.json` in `.vscode` folder:
+
+```json
+// .vscode/settings.json
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.format": true
+  }
+}
+```
