@@ -8,7 +8,7 @@ import { pick } from "contentlayer/utils";
 import components from "src/common/MDXComponents";
 import PagesLayout from "@/layouts/Pages";
 import Tags from "@/common/Tags";
-import Giscus from "@giscus/react/dist/Giscus";
+import Giscus from "@giscus/react";
 
 export default function BlogDetailPage({ post }: { post: Post }) {
   const Component = useMDXComponent(post.body.code);
