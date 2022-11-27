@@ -15,19 +15,6 @@ export default function BlogDetailPage({ post }: { post: Post }) {
   return (
     <PagesLayout>
       <NextSeo title={post.title} description={post.summary} />
-      <Giscus
-        repo="shoxie/whiterose-space"
-        repoId="R_kgDOHr5Weg"
-        category="Show and tell"
-        categoryId="DIC_kwDOHr5Wes4CSx6d"
-        mapping="pathname"
-        strict="0"
-        reactions-enabled="1"
-        emit-metadata="0"
-        input-position="bottom"
-        theme="preferred_color_scheme"
-        lang="en"
-      />
       <article>
         <h1 className="text-4xl font-bold">{post.title}</h1>
         <span title={moment(post.date).format("LL")}>
@@ -49,6 +36,19 @@ export default function BlogDetailPage({ post }: { post: Post }) {
           />
         </div>
       </article>
+      <Giscus
+        repo="shoxie/whiterose-space"
+        repoId="R_kgDOHr5Weg"
+        category="Show and tell"
+        categoryId="DIC_kwDOHr5Wes4CSx6d"
+        mapping="pathname"
+        strict="0"
+        reactions-enabled="1"
+        emit-metadata="0"
+        input-position="bottom"
+        theme="dark"
+        lang="en"
+      />
     </PagesLayout>
   );
 }
