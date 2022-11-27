@@ -14,6 +14,22 @@ export default function BlogDetailPage({ post }: { post: Post }) {
   return (
     <PagesLayout>
       <NextSeo title={post.title} description={post.summary} />
+      <script
+        src="https://giscus.app/client.js"
+        data-repo="shoxie/whiterose-space"
+        data-repo-id="R_kgDOHr5Weg"
+        data-category="Show and tell"
+        data-category-id="DIC_kwDOHr5Wes4CSx6d"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossOrigin="anonymous"
+        async
+      ></script>
       <article>
         <h1 className="text-4xl font-bold">{post.title}</h1>
         <span title={moment(post.date).format("LL")}>
