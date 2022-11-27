@@ -8,28 +8,26 @@ import { pick } from "contentlayer/utils";
 import components from "src/common/MDXComponents";
 import PagesLayout from "@/layouts/Pages";
 import Tags from "@/common/Tags";
+import Giscus from "@giscus/react/dist/Giscus";
 
 export default function BlogDetailPage({ post }: { post: Post }) {
   const Component = useMDXComponent(post.body.code);
   return (
     <PagesLayout>
       <NextSeo title={post.title} description={post.summary} />
-      <script
-        src="https://giscus.app/client.js"
-        data-repo="shoxie/whiterose-space"
-        data-repo-id="R_kgDOHr5Weg"
-        data-category="Show and tell"
-        data-category-id="DIC_kwDOHr5Wes4CSx6d"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossOrigin="anonymous"
-        async
-      ></script>
+      <Giscus
+        repo="shoxie/whiterose-space"
+        repoId="R_kgDOHr5Weg"
+        category="Show and tell"
+        categoryId="DIC_kwDOHr5Wes4CSx6d"
+        mapping="pathname"
+        strict="0"
+        reactions-enabled="1"
+        emit-metadata="0"
+        input-position="bottom"
+        theme="preferred_color_scheme"
+        lang="en"
+      />
       <article>
         <h1 className="text-4xl font-bold">{post.title}</h1>
         <span title={moment(post.date).format("LL")}>
