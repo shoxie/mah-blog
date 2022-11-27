@@ -12,7 +12,7 @@ import classNames from 'classnames'
 const menuItems = [
   {
     name: "Blog",
-    href: "/blog",
+    href: "/",
     mobile: false
   },
   {
@@ -28,7 +28,7 @@ const menuItems = [
   {
     name: "My resume",
     href: "/static/CV.pdf",
-    mobile: true
+    mobile: false
   },
 ];
 

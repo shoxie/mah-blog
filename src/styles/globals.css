@@ -12,22 +12,21 @@ body {
   background-color: rgb(var(--color-base));
   font-family: 'Open Sans', sans-serif;
   font-weight: 500;
-  @apply transition-all duration-300 cursor-none
+  @apply transition-all duration-300
 }
 
 a {
   color: inherit;
   text-decoration: none;
-  cursor: none;
 }
 
 * {
   box-sizing: border-box;
 }
 
-selector {
+/* selector {
   cursor: none;
-}
+} */
 /* theme */
 
 .moon {
