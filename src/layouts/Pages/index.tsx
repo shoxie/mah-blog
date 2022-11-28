@@ -77,7 +77,7 @@ const PagesLayout = ({ children }: Props) => {
       <motion.button type="button"
         className="fixed p-4 border border-gray-400 rounded-full right-10"
         animate={{
-          bottom: scrolled > 5 ? 40 : -50,
+          bottom: scrolled > 5 ? 40 : -100,
           transition: {
             duration: 0.5
           }
@@ -86,6 +86,7 @@ const PagesLayout = ({ children }: Props) => {
           overflow: "hidden",
         }}
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth"})}
+        aria-label="Scroll To Top"
       >
         <AiOutlineArrowUp className="text-xl" />
       </motion.button>
