@@ -17,7 +17,7 @@ const Link: FC<LinkProps> = ({ selected, onClick, text, href }) => {
     <motion.div
       className="relative"
       onClick={onClick}
-      animate={{ opacity: router.asPath === href ? 1 : 0.5 }}
+      animate={{ opacity: 1 }}
       whileHover={{
         opacity: 1
       }}

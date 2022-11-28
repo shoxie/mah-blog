@@ -74,6 +74,7 @@ const Header = () => {
                   },
                 }}
                 className="absolute"
+                aria-label="light-theme-changer"
               >
                 <BsFillSunFill className="text-yellow-400" />
               </motion.button>
@@ -91,6 +92,7 @@ const Header = () => {
                   },
                 }}
                 className="absolute"
+                aria-label="dark-theme-changer"
               >
                 <BsFillMoonFill className="text-text" />
               </motion.button>
