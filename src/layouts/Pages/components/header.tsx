@@ -30,6 +30,11 @@ const menuItems = [
     href: "/static/CV.pdf",
     mobile: false
   },
+  {
+    name: "Wordie game",
+    href: "https://wordie-game.vercel.app/",
+    mobile: false
+  }
 ];
 
 const Header = () => {
