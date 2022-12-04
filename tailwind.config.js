@@ -72,6 +72,30 @@ module.exports = {
           "code::after": {
             content: "",
           },
+        },
+        xl: {
+          css: {
+            "--tw-prose-body": theme("colors.text"),
+            "--tw-prose-headings": theme("colors.pine"),
+            "--tw-prose-links": theme("colors.highlightLow"),
+            "--tw-prose-pre-bg": theme("colors.overlay"),
+            "--tw-prose-code": theme("colors.love"),
+            "--tw-prose-pre-code": theme("colors.text"),
+            '--tw-prose-bold': theme('colors.love'),
+          },
+          code: {
+            color: theme("colors.iris"),
+            background: "rgb(38 35 58)",
+            padding: "0.25rem 0.4rem",
+            borderRadius: "0.25rem",
+            fontWeight: "600",
+          },
+          "code::before": {
+            content: "",
+          },
+          "code::after": {
+            content: "",
+          },
         }
       })
     },

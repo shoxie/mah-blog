@@ -1,6 +1,6 @@
-import { AnimatePresence, motion, Variants } from "framer-motion";
+import { AnimatePresence, motion, useViewportScroll, Variants } from "framer-motion";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import { AiOutlineArrowUp } from "react-icons/ai";
@@ -17,6 +17,21 @@ const PagesLayout = ({ children }: Props) => {
   const [cursorVariant, setCursorVariant] = useState("default");
   const [scrolled, setScrolled] = useState(0);
   const router = useRouter();
+  const [percent, setpercent] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollY } = useViewportScroll();
+
+  useEffect(() => {
+    const unsub = scrollY.onChange((value) => {
+      if (ref.current != null) {
+        const height = ref.current.clientHeight;
+        setpercent(Math.min(value / height, 1));
+      }
+    });
+    return () => {
+      unsub();
+    };
+  }, [scrollY]);
 
   const variants: Variants = {
     default: {
@@ -69,6 +84,18 @@ const PagesLayout = ({ children }: Props) => {
   return (
     <>
       <Header />
+      <div className="fixed top-0 left-0 z-[9999] w-full">
+        <motion.div
+          animate={{ opacity: percent > 0 ? 1 : 0 }}
+          className="h-1 bg-hightlight-high"
+        >
+          <motion.div
+            className="h-1 bg-iris"
+            animate={{ scaleX: percent }}
+            style={{ originX: 0, originY: 0 }}
+          />
+        </motion.div>
+      </div>
       <motion.div
         className="cursor"
         variants={variants}
@@ -101,7 +128,7 @@ const PagesLayout = ({ children }: Props) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
         >
-          <motion.main className="max-w-screen-lg px-10 mx-auto">
+          <motion.main className="max-w-screen-lg px-5 mx-auto lg:px-0" ref={ref}>
             {children}
           </motion.main>
         </motion.div>

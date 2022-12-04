@@ -104,7 +104,7 @@ const Pre = (props: any) => {
         </button>
       )}
 
-      <pre>{props.children}</pre>
+      <pre className="w-full">{props.children}</pre>
     </div>
   );
 };

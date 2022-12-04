@@ -1,0 +1,91 @@
+---
+title: Create an animated dropdown menu with TailwindCSS and Framer-motion
+date: "2022-12-03"
+tags: ["snippet", "framer-motion", "react", "nextjs"]
+description: Let's try to create an animated border for all links in the page with framer-motion.
+type: Snippet
+logo: "/static/images/framer.png"
+---
+
+## Facts
+
+There is plenty of UI library that can easily create this animation with just a component. But I want to re-create it myself to understand everything from the root.
+
+## Foundation
+
+First we need a state to hold the state of opening and closing of the dropdown and a button to trigger it.
+
+```tsx
+import { useState } from "react";
+
+const data = [
+     "Dropdown item 1",
+     "Dropdown item 2",
+     "Dropdown item 3",
+     "Dropdown item 4",
+]
+
+export default function Dropdown() {
+    const [isOpen, setIsOpen] = useState(false)
+
+    return (
+        <div>
+            <button onClick={() => setIsOpen(!isOpen)}>Open</button>
+            <div>
+                {
+                    data.map((item) => (
+                        <div key={item}>{item}</div>
+                    ))
+                }
+            </div>
+        </div>
+    )
+}
+```
+
+## Adding animation
+
+Let's import motion component from framer-motion package. Then add some animation like so: 
+
+```tsx
+import { motion } from "framer-motion";
+import { useState } from "react";
+
+const data = [
+  "Dropdown item 1",
+  "Dropdown item 2",
+  "Dropdown item 3",
+  "Dropdown item 4",
+];
+
+export default function Dropdown() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(!isOpen)}>Open</button>
+      <motion.div
+        style={{
+          overflow: "hidden",
+        }}
+        animate={{
+            height: isOpen ? "auto" : 0
+        }}
+      >
+        {data.map((item) => (
+          <div key={item}>{item}</div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+```
+
+What changed ? 
+- Normal `div` changed to `motion.div`, this allow us to access all attributes that motion component provide
+- Set `style.overflow` to hidden because adding `overflow-hidden` class will not be added to style in time, so the animation will not work.
+- Animate with `animate` attributes, this simply changes `height` to 0 when the dropdown is closed.
+
+## Conclusion
+
+There you have full control of the `dropdown` component. Any style added will heavily based on your preferences. Enjoy!

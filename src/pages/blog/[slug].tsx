@@ -28,7 +28,7 @@ export default function BlogDetailPage({ post }: { post: Post }) {
             ))}
           </div>
         </div>
-        <div className="mt-5 prose">
+        <div className="mt-5 prose prose-xl">
           <Component
             components={{
               ...components,

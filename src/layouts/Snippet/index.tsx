@@ -43,7 +43,7 @@ export default function SnippetLayout({
         </motion.div>
       </div>
       <Header />
-      <div className="max-w-screen-xl mx-auto">
+      <div className="max-w-screen-lg px-5 mx-auto lg:px-0">
         <article>
           <p className="text-subtle">{moment(snippet.date).format("LL")}</p>
           <div className="flex items-center gap-3 mb-4 ">
@@ -52,14 +52,14 @@ export default function SnippetLayout({
               alt=""
               className="object-contain rounded-full w-14"
             />
-            <h1 className="text-3xl font-bold text-rose md:text-5xl ">
+            <h1 className="text-3xl font-bold text-rose md:text-5xl">
               {snippet.title}
             </h1>
           </div>
-          <div className=" border-b-[1px] pb-4 border-muted ">
+          <div className=" border-b-[1px] pb-4 border-muted">
             <p className="text-lg text-text">{snippet.description}</p>
           </div>
-          <div className="mt-8 prose-xl" ref={ref}>
+          <div className="mt-8 prose prose-xl" ref={ref}>
             {children}
           </div>
         </article>

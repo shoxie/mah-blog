@@ -10,7 +10,7 @@ export default function BlogDetailPage({ snippet }: { snippet: Snippet }) {
   return (
     <SnippetLayout snippet={snippet}>
       <article>
-      <div className="mt-5 prose-xl">
+      <div className="mt-5 prose prose-xl">
           <Component
             components={{
               ...components,

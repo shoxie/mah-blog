@@ -24,7 +24,7 @@ const Footer = () => {
   });
 
   return (
-    <footer className="max-w-screen-lg px-10 py-5 pt-5 mx-auto">
+    <footer className="max-w-screen-lg py-5 pt-5 mx-auto">
       <div className="flex flex-row items-center justify-between pt-5 border-t border-highlightHigh">
         <div className="flex flex-row items-center space-x-3">
           {data?.isPlaying ? (
