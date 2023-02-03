@@ -2,7 +2,8 @@ import { Post } from ".contentlayer/generated";
 import { AiOutlineSearch } from "react-icons/ai";
 import PostPreview from "./PostPreview";
 import { useState, useMemo } from "react";
-import { useDebouncedValue } from '@mantine/hooks';
+import { useDebouncedValue } from "@mantine/hooks";
+import { AnimatePresence } from "framer-motion";
 
 const BlogList = ({ posts }: { posts: Post[] }) => {
   const [search, setSearch] = useState("");
@@ -37,9 +38,11 @@ const BlogList = ({ posts }: { posts: Post[] }) => {
         </div>
       </div>
       <div className="flex flex-col pt-5 space-y-5">
-        {filteredPosts.map((post, idx) => (
-          <PostPreview key={idx} post={post} />
-        ))}
+        <AnimatePresence mode="wait">
+          {filteredPosts.map((post, idx) => (
+            <PostPreview key={idx} post={post} idx={idx} />
+          ))}
+        </AnimatePresence>
       </div>
     </>
   );

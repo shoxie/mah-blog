@@ -7,34 +7,34 @@ import Logo from "public/logo.svg";
 import Image from "next/image";
 import { GoThreeBars } from "react-icons/go";
 import { useEffect, useRef, useState } from "react";
-import classNames from 'classnames'
+import classNames from "classnames";
 
 const menuItems = [
   {
     name: "Blog",
     href: "/",
-    mobile: false
+    mobile: false,
   },
   {
     name: "Snippet",
     href: "/snippet",
-    mobile: false
+    mobile: false,
   },
   {
     name: "About",
     href: "/about",
-    mobile: false
+    mobile: false,
   },
   {
     name: "My resume",
     href: "/static/CV.pdf",
-    mobile: false
+    mobile: false,
   },
   {
     name: "Wordie game",
     href: "https://wordie-game.vercel.app/",
-    mobile: false
-  }
+    mobile: false,
+  },
 ];
 
 const Header = () => {
@@ -52,14 +52,28 @@ const Header = () => {
     <>
       <header className="max-w-screen-xl px-10 py-5 mx-auto">
         <div className="flex-row items-center justify-between hidden lg:flex">
-          <div>
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+          >
             <Link href="/" passHref>
               <a className="text-2xl font-bold">
                 <Image src={Logo.src} alt="logo" width={50} height={50} />
               </a>
             </Link>
-          </div>
-          <div className="flex-row items-center justify-center hidden space-x-5 lg:flex">
+          </motion.div>
+          <motion.div initial={{
+            opacity: 0,
+            x: 100,
+          }} 
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          className="flex-row items-center justify-center hidden space-x-5 lg:flex">
             <UndelinedLinks items={menuItems} />
             <div
               onClick={() => setTheme(theme === "moon" ? "dawn" : "moon")}
@@ -102,7 +116,7 @@ const Header = () => {
                 <BsFillMoonFill className="text-text" />
               </motion.button>
             </div>
-          </div>
+          </motion.div>
         </div>
         <div
           className="flex items-center justify-between lg:hidden"
@@ -162,39 +176,37 @@ const Header = () => {
           </div>
         </div>
       </header>
-      <AnimatePresence exitBeforeEnter>
-
-      <motion.div
-        style={{
-          height: `calc(100vh - ${headerHeight}px)`,
-          marginTop: ``,
-        }}
-        className="fixed left-0 w-screen bg-black lg:hidden bg-opacity-80"
-        animate={{
-          zIndex: mobileNavOpen ? 1000 : -1,
-          opacity: mobileNavOpen ? 100 : 0,
-        }}
-      >
-        <div className="flex flex-col space-y-5">
-          {menuItems.map((nav, idx) => (
-            <Link key={nav.name} href={nav.href}>
-              <motion.a
-                key={nav.name}
-                className={classNames(
-                  "px-12 py-4 transform ease-in-out duration-300 font-bold text-xl",
-                  mobileNavOpen ? "translate-x-0" : "-translate-x-full"
-                )}
-                style={{
-                  transitionDelay: `${(idx + 1) * 100}ms`,
-                }}
-              >
-                {nav.name}
-              </motion.a>
-            </Link>
-          ))}
-        </div>
-      </motion.div>
-
+      <AnimatePresence mode="wait">
+        <motion.div
+          style={{
+            height: `calc(100vh - ${headerHeight}px)`,
+            marginTop: ``,
+          }}
+          className="fixed left-0 w-screen bg-black lg:hidden bg-opacity-80"
+          animate={{
+            zIndex: mobileNavOpen ? 1000 : -1,
+            opacity: mobileNavOpen ? 100 : 0,
+          }}
+        >
+          <div className="flex flex-col space-y-5">
+            {menuItems.map((nav, idx) => (
+              <Link key={nav.name} href={nav.href}>
+                <motion.a
+                  key={nav.name}
+                  className={classNames(
+                    "px-12 py-4 transform ease-in-out duration-300 font-bold text-xl",
+                    mobileNavOpen ? "translate-x-0" : "-translate-x-full"
+                  )}
+                  style={{
+                    transitionDelay: `${(idx + 1) * 100}ms`,
+                  }}
+                >
+                  {nav.name}
+                </motion.a>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
       </AnimatePresence>
     </>
   );

@@ -2,10 +2,23 @@ import { Post } from ".contentlayer/generated";
 import Tags from "@/common/Tags";
 import moment from "moment";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
-const PostPreview = ({ post }: { post: Post }) => {
+const PostPreview = ({ post, idx }: { post: Post, idx: number }) => {
   return (
-    <div className="flex flex-col space-y-5">
+    <motion.div initial={{
+      opacity: 0,
+      y: 20,
+    }}
+    animate={{
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: (idx + 1) * 0.5,
+        delay: (idx + 1) * 0.5,
+      },
+    }}
+    className="flex flex-col space-y-5">
       <div className="flex flex-row items-center justify-between">
         <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
           <a className="text-2xl font-bold hover:underline">{post.title}</a>
@@ -18,7 +31,7 @@ const PostPreview = ({ post }: { post: Post }) => {
             ))}
           </div>
       <p>{post.summary}</p>
-    </div>
+    </motion.div>
   );
 };
 
