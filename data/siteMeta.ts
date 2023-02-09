@@ -4,7 +4,8 @@ const siteMeta = {
     description: "A place where WhiteRose gone mad with tech.",
     author: "Đào Tuấn Anh",
     email: "doctorwrose@gmail.com",
-    github: "https://github.com/shoxie"
+    github: "https://github.com/shoxie",
+    siteLogo: "/static/logo.svg",
 }
 
 export default siteMeta;
