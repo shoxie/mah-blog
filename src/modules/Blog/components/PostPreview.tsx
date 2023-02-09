@@ -14,8 +14,8 @@ const PostPreview = ({ post, idx }: { post: Post, idx: number }) => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: (idx + 1) * 0.5,
-        delay: (idx + 1) * 0.5,
+        duration: (idx + 1) * 0.3,
+        delay: (idx + 1) * 0.3,
       },
     }}
     className="flex flex-col space-y-5">

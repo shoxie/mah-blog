@@ -1,0 +1,109 @@
+---
+title: Taking a glance at MeteorJS
+date: "2023-02-09"
+tags: ["meteor", "blaze"]
+summary: Let's learn new framework
+type: Post
+---
+
+## Sources
+Our trusted sources to begin with:
+
+* [MeteorJS](https://www.meteor.com/)
+* [Blaze](https://blazejs.org/)
+* [MeteorJS Tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app)
+* [MeteorJS Docs](https://docs.meteor.com/)
+
+## What is MeteorJS?
+Compared to other frameworks, MeteorJS is a full-stack framework. I think it's friendly for beginner to start with as Blaze is a simple template engine. It's also a good choice for small projects or your lazyness to set up a backend server.
+
+## What is Blaze?
+Blaze is a simple template engine. It's a part of MeteorJS. Blaze is only HTML/CSS and JavaScript. The reactive data binding is the most important feature of Blaze. It's easy to learn and use.
+
+Example counter for Blaze template engine:
+
+```html
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+```
+
+```javascript
+Template.hello.onCreated(function helloOnCreated() {
+  // counter starts at 0
+  this.counter = new ReactiveVar(0);
+});
+
+Template.hello.helpers({
+  counter() {
+    return Template.instance().counter.get();
+  },
+});
+
+Template.hello.events({
+  'click button'(event, instance) {
+    // increment the counter when button is clicked
+    instance.counter.set(instance.counter.get() + 1);
+  },
+});
+```
+
+## Meteor CLI
+Meteor CLI is a command line tool to create, run and deploy MeteorJS applications. It's easy to use and fast to set up a project.
+
+```bash
+meteor create myapp
+cd myapp
+meteor
+```
+
+Meteor comes with various of template engine, such as Blaze, React, Vue, Angular. You can choose your favorite template engine to start with. Run `meteor create help` to see more options.
+
+```bash
+Options:
+  --package     Create a new meteor package instead of an app.
+  --example     Example template to use.
+  --list        Show list of available examples.
+  --bare        Create an empty app.
+  --minimal     Create an app with as few Meteor packages as possible.
+  --full        Create a fully scaffolded app.
+  --react       Create a basic react-based app, same as default.
+  --vue         Create a basic vue3-based app.
+  --vue-2       Create a basic vue2-based app.
+  --apollo      Create a basic apollo-based app.
+  --svelte      Create a basic svelte-based app.
+  --typescript  Create a basic Typescript React-based app.
+  --blaze       Create a basic blaze-based app.
+  --tailwind    Create a basic react-based app, with tailwind configured.
+  --chakra-ui   Create a basic react-based app, with chakra-ui configured.
+  --solid       Create a basic solid-based app.
+  --prototype   Create a prototype app with the insecure & autopublish packages. Can be used along with other app commands
+
+```
+
+
+## MeteorJS Structure
+MeteorJS has a simple structure. It's easy to understand and use.
+
+```bash
+myapp
+├── client
+│   ├── main.html
+│   ├── main.js
+│   └── main.css
+├── server
+│   └── main.js
+└── package.json
+```
+
+## MeteorJS Packages
+MeteorJS has a lot of packages. It's easy to use and fast to set up a project. You can find packages on [Atmosphere](https://atmospherejs.com/).
+
+Most popular packages:
+* [reactive-var](https://atmospherejs.com/meteor/reactive-var)
+* [accounts-password](https://atmospherejs.com/meteor/accounts-password)
+* [accounts-ui](https://atmospherejs.com/meteor/accounts-ui)
+
+## Conclusion
+MeteorJS to me is a little bit like Laravel. It has generate options, packages that help in development. I think it's friendly for beginner to start with as Blaze is a simple template engine. I will try to use MeteorJS in my next project. I hope you find this article helpful. Thanks for reading.
