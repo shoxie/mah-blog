@@ -97,6 +97,9 @@ function MyApp({
                   },
                 ],
               }}
+              facebook={{
+                appId: "451524752582846",
+              }}
             />
             <Component {...pageProps} key={router.route} />
             <Analytics />
