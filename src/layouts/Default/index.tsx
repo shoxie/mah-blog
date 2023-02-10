@@ -10,7 +10,7 @@ const DefaultLayout = ({ children }: Props) => {
   
   return (
     <>
-      <AnimatePresence initial={false} exitBeforeEnter>
+      <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={router.asPath}
           initial={{

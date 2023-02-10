@@ -117,7 +117,7 @@ const PagesLayout = ({ children }: Props) => {
       >
         <AiOutlineArrowUp className="text-xl" />
       </motion.button>
-      <AnimatePresence initial={false} exitBeforeEnter>
+      <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={router.asPath}
           initial={{
